@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tripmate"
+version = "0.1.0"
+description = "An agentic travel assistant — destination retrieval"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1",
+  "pydantic>=2.12,<3",
+  "pydantic-settings>=2.6,<3",
+  "groq>=0.30,<1",
+  "langgraph>=1,<2",
+  "langgraph-checkpoint-sqlite>=3.1,<4",
+  "numpy>=2,<3",
+  "sentence-transformers>=5,<6",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.9,<1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tripmate = ["static/*.html", "static/*.css", "static/*.js"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

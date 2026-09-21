@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TripMate · Your travel companion</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/stream.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+
+<body>
+  <main class="shell">
+    <header>
+      <p class="eyebrow">A little curiosity. A new destination.</p>
+      <h1>TripMate<span aria-hidden="true">↗</span></h1>
+      <p class="intro">Destination insights and seasonal weather for Bangkok, Barcelona, Reykjavik, and Tokyo.</p>
+      <p class="status" id="health-status" role="status">Checking application status…</p>
+    </header>
+    <div class="workspace">
+      <section class="chat panel" aria-labelledby="chat-heading">
+        <div class="panel-heading">
+          <h2 id="chat-heading">Plan your next chapter</h2>
+          <button id="new-chat" type="button" class="new-chat">New chat</button>
+        </div>
+        <div class="messages" id="messages" role="log" aria-label="Chat messages" aria-live="polite">
+          <div class="empty-state" id="empty-state">
+            <span class="compass" aria-hidden="true">↗</span>
+            <h3>The journey starts here.</h3>
+            <p>Ask about local customs, packing, entry guidance, or seasonal weather.</p>
+          </div>
+        </div>
+        <p id="loading-status" class="request-status" role="status" hidden>TripMate is thinking…</p>
+        <p id="error-status" class="error-status" role="alert" hidden></p>
+        <form id="chat-form" aria-describedby="chat-note">
+          <label for="message">Your travel question</label>
+          <div class="composer">
+            <input id="message" name="message" type="text" maxlength="4000" required
+              placeholder="Where would you like to go?" disabled>
+            <button id="send-button" type="submit" disabled>Send <span aria-hidden="true">↗</span></button>
+          </div>
+          <p id="chat-note" class="hint">Follow-ups remember this conversation, including after refresh. New chat starts
+            fresh.</p>
+          <noscript>Enable JavaScript to use chat.</noscript>
+        </form>
+      </section>
+      <aside class="panel trace" aria-labelledby="suggestions-heading">
+        <p class="eyebrow">Start exploring</p>
+        <h2 id="suggestions-heading">Try a question</h2>
+        <div class="suggestions">
+          <button type="button" data-prompt="What local customs should I know before visiting Tokyo?">Tokyo customs
+            ↗</button>
+          <button type="button" data-prompt="What weather should I expect in Bangkok in July?">Bangkok in July
+            ↗</button>
+          <button type="button" data-prompt="I'm visiting Reykjavik in December. What should I pack?">Pack for Reykjavik
+            ↗</button>
+          <button type="button" data-prompt="Can you book me a flight to Barcelona?">Barcelona flight booking ↗</button>
+        </div>
+        <h2>Behind the answer</h2>
+        <p>Expand the execution trace beneath any answer to see which tools were used and their results.</p>
+        <p class="hint">Weather uses illustrative monthly profiles, not a live forecast. Destination guides are
+          assessment reference material.</p>
+      </aside>
+    </div>
+    <footer>TripMate / Travel companion <span>Built for the curious.</span></footer>
+  </main>
+</body>
+
+</html>
